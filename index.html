@@ -6,6 +6,9 @@
 	</head>
 	<body>
 		<script>
+		console.log(window.location.search.substr(1))
+		
+			
 		var today = new Date();
 		var dd = today.getDate() ;
 		var dd2 = dd + 1;
@@ -32,6 +35,15 @@ if (today.getDay() == 0) {
 			var re = new RegExp('Day A|Day B|Day C|Day D');
 			var responses = response
 		  document.write(re.exec(response));
+		  if (window.location.search.substr(1) == "send") {
+			
+			$.ajax({
+  type: "POST",
+  url: url,
+  data: (re.exec(response)),
+  dataType: "text/plain"
+});
+		}
 		});
 
 		</script>
