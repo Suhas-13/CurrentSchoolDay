@@ -49,7 +49,9 @@
 		$.get(url, function(response) {
 			var re = new RegExp('Day A|Day B|Day C|Day D');
 			var responses = response
-		  document.write(re.exec(response));
+		  var days = (re.exec(response));
+		  days.fontsize(25);
+		  document.write(days);
 		  if (window.location.search.substr(1) == "send") {
 			
 			$.ajax({
