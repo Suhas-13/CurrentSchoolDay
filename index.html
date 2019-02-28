@@ -11,9 +11,12 @@
 			
 		var today = new Date();
 		var dd = today.getDate() ;
-		var dd2 = today.getDate() + 1;
+		var dd2 = new Date()
+		dd2.setDate(today.getDate() + 1)
+		
 		var mm = today.getMonth() + 1; 
-
+		var mm2 = dd2.getMonth() + 1;
+		dd2=dd2.getDate()
 		if (mm.toString().length == 1) {
 			mm = "0" + mm.toString();
 
@@ -27,7 +30,7 @@ if (today.getDay() == 0) {
 	dd=dd+1
 	dd2=dd2+1
 }
-		var fullstring = (yyyy.toString() + mm.toString()+dd.toString()  + "/" + yyyy.toString() + mm.toString()+dd2.toString());
+		var fullstring = (yyyy.toString() + mm.toString()+dd.toString()  + "/" + yyyy.toString() + mm2.toString()+dd2.toString());
 
 		var url = ("https://cors-anywhere.herokuapp.com/https://calendar.google.com/calendar/htmlembed?src=sas.edu.sg_59677quvvugr43j58tm4r23ang@group.calendar.google.com&ctz=Asia/Singapore&pli=1&mode=AGENDA&amp&dates=" + fullstring);
 		console.log(url);
