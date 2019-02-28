@@ -50,7 +50,7 @@
 			var re = new RegExp('Day A|Day B|Day C|Day D');
 			var responses = response
 		  var days = (re.exec(response));
-		  days.fontsize(25);
+		  days.toString().fontsize(25);
 		  document.write(days);
 		  if (window.location.search.substr(1) == "send") {
 			
