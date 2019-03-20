@@ -29,7 +29,7 @@
 		var tomorrowVar = dd2.toISOString();
 
 		var url = ("https://www.googleapis.com/calendar/v3/calendars/sas.edu.sg_59677quvvugr43j58tm4r23ang@group.calendar.google.com/events?key=AIzaSyCnJefaZN4-YhmiF1Zcpo4-qH3B5b30Ybk&&maxResults=1&singleEvents=true&orderBy=startTime&timeMin="+timeStart+"&&timeMax="+tomorrowVar);
-		console.log(url);
+		
 		$.ajax({
         url: url,
         type: 'GET',
@@ -41,6 +41,7 @@ function displayAll(data){
     var result = (data["items"][0]["summary"]);
     result=result.fontsize(10000);
     document.write(result);
+console.log(url);
 }
 
 
