@@ -85,7 +85,7 @@ function displayAll2(data){
     result=result.fontsize(10000);
     
     document.write(result);// 3 new lines!  My oh my!
-    if (typeof(data["items"][i]["end"]["date"]) != "undefined"){
+    if (typeof(data["items"][i]["end"]["date"]) = "undefined"){
     	duedate=" is due on " + data["items"][i]["end"]["dateTime"]
     duedate=duedate.fontsize(100000);
     document.write(duedate);
