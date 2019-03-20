@@ -6,7 +6,6 @@
 	</head>
 	<body>
 		<script>
-		console.log(window.location.search.substr(1))
 		
 			
 		var today = new Date();
@@ -14,54 +13,36 @@
 		var dd2 = new Date()
 		dd2.setDate(today.getDate() + 1)
 		
-		var mm = today.getMonth() + 1; 
-		var mm2 = dd2.getMonth() + 1;
-		dd2=dd2.getDate()
-		if (mm.toString().length == 1) {
-			mm = "0" + mm.toString();
+		
 
-		}
-		if (mm2.toString().length==1) {
-			mm2="0" + mm2.toString();
-			
-		}
 		if (today.getDay() == 6) {
-			dd=dd+2
-			dd2=dd2+2
+			today.setDate(today.getDate()+2);
+			dd2.setDate(today.getDate()+2);
+		
 		}
 		if (today.getDay() == 0) {
-			dd=dd+1
-			dd2=dd2+1
+			today.setDate(today.getDate()+1);
+			dd2.setDate(today.getDate()+1);
 		}	
-		if (dd.toString().length==1) {
-			dd="0"+dd.toString();
-		}
-		if (dd2.toString().length==1) {
-			dd2="0"+dd2.toString();
-		}
-		var yyyy = today.getFullYear();
+		
+		var timeStart=today.toISOString();
+		var tomorrowVar = dd2.toISOString();
 
-
-		var fullstring = (yyyy.toString() + mm.toString()+dd.toString()  + "/" + yyyy.toString() + mm2.toString()+dd2.toString());
-
-		var url = ("https://cors-anywhere.herokuapp.com/https://calendar.google.com/calendar/htmlembed?src=sas.edu.sg_59677quvvugr43j58tm4r23ang@group.calendar.google.com&ctz=Asia/Singapore&pli=1&mode=AGENDA&amp&dates=" + fullstring);
+		var url = ("https://www.googleapis.com/calendar/v3/calendars/sas.edu.sg_59677quvvugr43j58tm4r23ang@group.calendar.google.com/events?key=AIzaSyCnJefaZN4-YhmiF1Zcpo4-qH3B5b30Ybk&&maxResults=1&singleEvents=true&orderBy=startTime&timeMin="+timeStart+"&&timeMax="+tomorrowVar);
 		console.log(url);
-		$.get(url, function(response) {
-			var re = new RegExp('Day A|Day B|Day C|Day D');
-			var responses = response
-		  var days = (re.exec(response));
-		  days=days.toString().fontsize(83438);
-		  document.write(days);
-		  if (window.location.search.substr(1) == "send") {
-			
-			$.ajax({
-  type: "POST",
-  url: url,
-  data: (re.exec(response)),
-  dataType: "text/plain"
-});
-		}
-		});
+		$.ajax({
+        url: url,
+        type: 'GET',
+        dataType: "json",
+        success: displayAll
+    });
+
+function displayAll(data){
+    var result = (data["items"][0]["summary"]);
+    result=result.fontsize(10000);
+    document.write(result);
+}
+
 
 		</script>
 	</body>
