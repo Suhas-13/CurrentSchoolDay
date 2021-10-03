@@ -44,8 +44,8 @@
 
 function displayAll(data){
     var event_list_length = data["items"].length;
-    var currentDay = (new Date(data["items"][event_list_length]["start"]["date"]).toLocaleDateString('sg-SG', { weekday: 'long' }));      
-    var result = currentDay + " is a " + (data["items"][event_list_length]["summary"]);
+    var currentDay = (new Date(data["items"][event_list_length-1]["start"]["date"]).toLocaleDateString('sg-SG', { weekday: 'long' }));      
+    var result = currentDay + " is a " + (data["items"][event_list_length-1]["summary"]);
 
     result=result.fontsize(10000);
 
