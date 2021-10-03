@@ -12,7 +12,7 @@
 	
 		var today = new Date();
 		var dd = today.getDate() ;
-		dd.setDate(today.getDate() - 1)
+		today.setDate(today.getDate() - 1)
 		var dd2 = new Date()
 		dd2.setDate(today.getDate() + 1)
 		
@@ -20,12 +20,10 @@
 		 otherTomorrowVar.setDate(today.getDate()+7)
 
 		if (today.getDay() == 6) {
-			today.setDate(today.getDate()+2);
 			dd2.setDate(today.getDate()+2);
 		
 		}
 		if (today.getDay() == 0) {
-			today.setDate(today.getDate()+1);
 			dd2.setDate(today.getDate()+1);
 		}	
 		
