@@ -12,6 +12,7 @@
 	
 		var today = new Date();
 		var dd = today.getDate() ;
+		dd2.setDate(today.getDate() - 1)
 		var dd2 = new Date()
 		dd2.setDate(today.getDate() + 1)
 		
@@ -44,8 +45,9 @@
     });
 
 function displayAll(data){
-    var currentDay = (new Date(data["items"][0]["start"]["date"]).toLocaleDateString('sg-SG', { weekday: 'long' }));      
-    var result = currentDay + " is a " + (data["items"][0]["summary"]);
+    var event_list_length = data["items"].length;
+    var currentDay = (new Date(data["items"][event_list_length]["start"]["date"]).toLocaleDateString('sg-SG', { weekday: 'long' }));      
+    var result = currentDay + " is a " + (data["items"][event_list_length]["summary"]);
 
     result=result.fontsize(10000);
 
