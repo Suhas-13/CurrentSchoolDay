@@ -14,7 +14,7 @@
 		var dd = today.getDate() ;
 		today.setDate(today.getDate() - 1)
 		var dd2 = new Date()
-		
+		dd2.setDate(today.getDate() + 2)
 	
 		if (today.getDay() == 6) {
 			dd2.setDate(today.getDate()+2);
@@ -23,9 +23,7 @@
 		else if (today.getDay() == 0) {
 			dd2.setDate(today.getDate()+1);
 		}
-		else {
-			dd2.setDate(today.getDate() + 1)
-		}
+	
 
 		
 		var timeStart=today.toISOString();
