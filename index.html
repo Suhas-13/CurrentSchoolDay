@@ -14,22 +14,22 @@
 		var dd = today.getDate() ;
 		today.setDate(today.getDate() - 1)
 		var dd2 = new Date()
-		dd2.setDate(today.getDate() + 1)
 		
-		var otherTomorrowVar =  new Date()
-		 otherTomorrowVar.setDate(today.getDate()+7)
-
+	
 		if (today.getDay() == 6) {
 			dd2.setDate(today.getDate()+2);
 		
 		}
-		if (today.getDay() == 0) {
+		else if (today.getDay() == 0) {
 			dd2.setDate(today.getDate()+1);
-		}	
+		}
+		else {
+			dd2.setDate(today.getDate() + 1)
+		}
+
 		
 		var timeStart=today.toISOString();
 		var tomorrowVar = dd2.toISOString();
-		var otherTomorrowVar = otherTomorrowVar.toISOString();
 		var url = ("https://www.googleapis.com/calendar/v3/calendars/sas.edu.sg_59677quvvugr43j58tm4r23ang@group.calendar.google.com/events?key=AIzaSyCnJefaZN4-YhmiF1Zcpo4-qH3B5b30Ybk&&maxResults=2500&singleEvents=true&orderBy=startTime&timeMin="+timeStart+"&&timeMax="+tomorrowVar);
 		var url2 = ("https://www.googleapis.com/calendar/v3/calendars/"+document.cookie.split(";")[0].split("=")[1]+"/events?key=AIzaSyCnJefaZN4-YhmiF1Zcpo4-qH3B5b30Ybk&&maxResults=2500&singleEvents=true&orderBy=startTime&timeMin="+timeStart+"&&timeMax="+tomorrowVar);
 		console.log(url2);
