@@ -13,8 +13,7 @@
 		var today = new Date();
 		var dd = today.getDate() ;
 		today.setDate(today.getDate() - 1)
-		var dd2 = new Date()
-		dd2.setDate(today.getDate() + 2)
+		var dd2 = new Date(today.getTime() + 24 * 60 * 60 * 1000);
 	
 		if (today.getDay() == 6) {
 			dd2.setDate(today.getDate()+2);
